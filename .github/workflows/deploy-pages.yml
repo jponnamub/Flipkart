@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - cursor/interview-agent-builder-236f
   workflow_dispatch:
 
 permissions:

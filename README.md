@@ -12,12 +12,15 @@ generate reusable coaching prompts and practice plans.
 - Practice workspace for flexible interview coaching requests
 - Responsive static website with no build step
 
-## Run locally
+## Hosted website
 
-Open `index.html` in a browser, or serve the folder with any static file server:
+The site is set up to deploy with GitHub Pages at:
 
-```bash
-python3 -m http.server 8000
-```
+https://jponnamub.github.io/Flipkart/
 
-Then visit `http://localhost:8000`.
+GitHub Pages must be enabled for the repository, then the deployment workflow
+publishes the static site automatically from `main`.
+
+For branch review before merging, use GitHub's HTML preview service:
+
+https://htmlpreview.github.io/?https://raw.githubusercontent.com/jponnamub/Flipkart/cursor/interview-agent-builder-236f/index.html
