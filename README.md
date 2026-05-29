@@ -14,7 +14,11 @@ generate reusable coaching prompts and practice plans.
 
 ## Hosted website
 
-The site is set up to deploy with GitHub Pages at:
+The live deployed website is available at:
+
+https://freekit.dev/s/interview-agent-studio-236f/
+
+The repository is also set up to deploy with GitHub Pages at:
 
 https://jponnamub.github.io/Flipkart/
 
