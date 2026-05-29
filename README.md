@@ -23,6 +23,14 @@ npm start
 
 Then open `http://localhost:4173`.
 
+## Hosted website
+
+This project is ready for GitHub Pages. After the pull request is merged into `main`, the included workflow publishes the website here:
+
+```text
+https://jponnamub.github.io/Flipkart/
+```
+
 ## Check JavaScript syntax
 
 ```bash
