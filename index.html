@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interview Agent Studio</title>
+    <meta
+      name="description"
+      content="Create custom interview helper agents, save their coaching style, and generate practice prompts for any interview goal."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="Interview Agent Studio home">
+          <span class="brand-mark">IA</span>
+          <span>Interview Agent Studio</span>
+        </a>
+        <div class="nav-links">
+          <a href="#builder">Build</a>
+          <a href="#agents">Agents</a>
+          <a href="#coach">Coach</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section">
+        <div class="hero-copy">
+          <p class="eyebrow">Custom AI-style interview preparation</p>
+          <h1>Build your own interview helping agents for any goal.</h1>
+          <p class="hero-text">
+            Design agents that coach behavioral stories, technical answers,
+            role research, salary scripts, follow-ups, or any custom interview
+            task you want to practice.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#builder">Create an agent</a>
+            <a class="button button-ghost" href="#coach">Start coaching</a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Example interview agent">
+          <div class="panel-topline">
+            <span class="status-dot"></span>
+            Live agent blueprint
+          </div>
+          <h2>Senior PM Loop Coach</h2>
+          <p>
+            Focuses on product sense, metrics, tradeoffs, and crisp STAR
+            stories for late-stage interviews.
+          </p>
+          <div class="metric-grid">
+            <div>
+              <strong>4</strong>
+              <span>Practice modes</span>
+            </div>
+            <div>
+              <strong>12</strong>
+              <span>Question themes</span>
+            </div>
+            <div>
+              <strong>1</strong>
+              <span>Reusable prompt</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section value-grid" aria-label="What the studio helps with">
+        <article class="value-card">
+          <span class="card-number">01</span>
+          <h2>Define the mission</h2>
+          <p>
+            Tell the agent your target role, interview stage, support areas,
+            and rules so its help is specific to your situation.
+          </p>
+        </article>
+        <article class="value-card">
+          <span class="card-number">02</span>
+          <h2>Save your helpers</h2>
+          <p>
+            Keep multiple agents in your browser for different companies,
+            formats, or practice needs.
+          </p>
+        </article>
+        <article class="value-card">
+          <span class="card-number">03</span>
+          <h2>Practice anything</h2>
+          <p>
+            Generate prompts, coaching plans, and answer feedback for whatever
+            interview task you want to improve.
+          </p>
+        </article>
+      </section>
+
+      <section id="builder" class="section split-section">
+        <div class="section-heading">
+          <p class="eyebrow">Agent builder</p>
+          <h2>Create a helper that matches your interview.</h2>
+          <p>
+            Fill out the details below. The studio turns them into a saved
+            agent profile and a reusable prompt you can copy into your favorite
+            AI chat tool.
+          </p>
+        </div>
+
+        <form id="agent-form" class="builder-card">
+          <div class="field-pair">
+            <label>
+              Agent name
+              <input
+                id="agent-name"
+                name="name"
+                type="text"
+                placeholder="Example: Data Analyst Case Coach"
+                required
+              />
+            </label>
+            <label>
+              Target role
+              <input
+                id="target-role"
+                name="role"
+                type="text"
+                placeholder="Example: Frontend Engineer"
+                required
+              />
+            </label>
+          </div>
+
+          <div class="field-pair">
+            <label>
+              Company or industry
+              <input
+                id="company"
+                name="company"
+                type="text"
+                placeholder="Example: fintech startup"
+              />
+            </label>
+            <label>
+              Interview stage
+              <select id="stage" name="stage">
+                <option>Phone screen</option>
+                <option>Technical interview</option>
+                <option>Behavioral interview</option>
+                <option>Case interview</option>
+                <option>Final onsite loop</option>
+                <option>Offer negotiation</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            What should this agent help you do?
+            <textarea
+              id="goals"
+              name="goals"
+              rows="4"
+              placeholder="Example: Drill me on product metrics, improve my storytelling, and help me ask better interviewer questions."
+              required
+            ></textarea>
+          </label>
+
+          <fieldset>
+            <legend>Support areas</legend>
+            <div class="checkbox-grid">
+              <label>
+                <input type="checkbox" name="support" value="Behavioral stories" checked />
+                Behavioral stories
+              </label>
+              <label>
+                <input type="checkbox" name="support" value="Technical drills" />
+                Technical drills
+              </label>
+              <label>
+                <input type="checkbox" name="support" value="Case practice" />
+                Case practice
+              </label>
+              <label>
+                <input type="checkbox" name="support" value="Resume review" />
+                Resume review
+              </label>
+              <label>
+                <input type="checkbox" name="support" value="Role research" />
+                Role research
+              </label>
+              <label>
+                <input type="checkbox" name="support" value="Negotiation scripts" />
+                Negotiation scripts
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="field-pair">
+            <label>
+              Coaching style
+              <select id="tone" name="tone">
+                <option>Direct and practical</option>
+                <option>Encouraging and detailed</option>
+                <option>Challenging mock interviewer</option>
+                <option>Concise executive coach</option>
+              </select>
+            </label>
+            <label>
+              Session length
+              <select id="session-length" name="sessionLength">
+                <option>5 minute warmup</option>
+                <option>15 minute focused drill</option>
+                <option>30 minute mock interview</option>
+                <option>60 minute deep practice</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Boundaries or special instructions
+            <textarea
+              id="rules"
+              name="rules"
+              rows="3"
+              placeholder="Example: Ask one question at a time. Always give a stronger sample answer after feedback."
+            ></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button class="button button-primary" type="submit">Save agent</button>
+            <button class="button button-secondary" type="button" id="load-demo">
+              Load demo
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section id="agents" class="section agents-section">
+        <div class="section-heading">
+          <p class="eyebrow">Saved agents</p>
+          <h2>Your interview helper library</h2>
+          <p>
+            Select an agent to generate a prompt or coach your current answer.
+            Agents are stored locally in this browser.
+          </p>
+        </div>
+        <div id="agent-list" class="agent-list" aria-live="polite"></div>
+      </section>
+
+      <section id="coach" class="section coach-section">
+        <div class="section-heading">
+          <p class="eyebrow">Practice workspace</p>
+          <h2>Use your agent to plan, practice, and improve.</h2>
+          <p>
+            Choose a saved agent, describe what you want help with, and get a
+            tailored coaching prompt plus practical next steps.
+          </p>
+        </div>
+
+        <div class="coach-grid">
+          <section class="workspace-card" aria-labelledby="active-agent-heading">
+            <h3 id="active-agent-heading">Active agent</h3>
+            <div id="active-agent" class="active-agent-empty">
+              Create or select an agent to begin.
+            </div>
+            <button class="button button-secondary full-width" id="copy-prompt" type="button" disabled>
+              Copy reusable prompt
+            </button>
+          </section>
+
+          <section class="workspace-card" aria-labelledby="practice-heading">
+            <h3 id="practice-heading">Ask for help with anything</h3>
+            <label>
+              Current task or interview question
+              <textarea
+                id="practice-input"
+                rows="5"
+                placeholder="Example: Help me answer 'Tell me about a time you handled conflict' for a design manager interview."
+              ></textarea>
+            </label>
+            <button class="button button-primary full-width" id="coach-button" type="button">
+              Generate coaching plan
+            </button>
+          </section>
+
+          <section class="workspace-card output-card" aria-labelledby="output-heading">
+            <h3 id="output-heading">Agent output</h3>
+            <div id="coach-output" class="coach-output">
+              Your generated prompt and coaching plan will appear here.
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Built as a browser-only prototype. Your agents stay in local storage on
+        this device.
+      </p>
+      <button id="clear-agents" class="text-button" type="button">
+        Clear saved agents
+      </button>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
