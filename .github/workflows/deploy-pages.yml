@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - cursor/flipkart-like-site-eb07
   workflow_dispatch:
 
 permissions:
