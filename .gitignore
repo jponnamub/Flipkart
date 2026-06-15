@@ -7,4 +7,5 @@ public/uploads/*
 prisma/dev.db
 coverage
 dist
+tsconfig.tsbuildinfo
 npm-debug.log*
