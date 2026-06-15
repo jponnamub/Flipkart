@@ -7,22 +7,25 @@ import { prisma } from "@/lib/prisma";
 import { SignOutButton } from "@/components/sign-out-button";
 
 export async function SiteHeader() {
-  const session = await getServerSession(authOptions).catch(() => null);
+  const shouldReadSession = Boolean(process.env.NEXTAUTH_SECRET) || process.env.NODE_ENV !== "production";
+  const session = shouldReadSession ? await getServerSession(authOptions).catch(() => null) : null;
   let cartCount = 0;
   let categories: { id: string; name: string; slug: string }[] = [];
 
-  try {
-    const [cartResult, categoryResult] = await Promise.all([
-      session?.user
-        ? prisma.cartItem.aggregate({ where: { userId: session.user.id }, _sum: { quantity: true } })
-        : Promise.resolve({ _sum: { quantity: 0 } }),
-      prisma.category.findMany({ orderBy: { name: "asc" }, take: 6, select: { id: true, name: true, slug: true } })
-    ]);
-    cartCount = cartResult._sum.quantity ?? 0;
-    categories = categoryResult;
-  } catch {
-    cartCount = 0;
-    categories = [];
+  if (process.env.DATABASE_URL) {
+    try {
+      const [cartResult, categoryResult] = await Promise.all([
+        session?.user
+          ? prisma.cartItem.aggregate({ where: { userId: session.user.id }, _sum: { quantity: true } })
+          : Promise.resolve({ _sum: { quantity: 0 } }),
+        prisma.category.findMany({ orderBy: { name: "asc" }, take: 6, select: { id: true, name: true, slug: true } })
+      ]);
+      cartCount = cartResult._sum.quantity ?? 0;
+      categories = categoryResult;
+    } catch {
+      cartCount = 0;
+      categories = [];
+    }
   }
 
   return (
