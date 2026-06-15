@@ -9,7 +9,8 @@ const allowedTypes = new Set(["image/jpeg", "image/png", "image/webp", "image/gi
 
 export async function POST(request: Request) {
   const session = await getServerSession(authOptions);
-  if (!session?.user || ![Role.ADMIN, Role.SELLER].includes(session.user.role)) {
+  const uploadRoles: Role[] = [Role.ADMIN, Role.SELLER];
+  if (!session?.user || !uploadRoles.includes(session.user.role)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
