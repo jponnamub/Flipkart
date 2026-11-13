@@ -123,7 +123,7 @@ def render(path: str) -> str:
         mix += _flute(freq, start, dur, amp, n)
         mix += _pluck(freq / 2, start, min(1.8, dur + 0.4), amp * 0.45, n)
 
-    for hit in (0.35, 5.05, 12.05, 17.05, 24.05, 31.05):
+    for hit in (0.35, 5.05, 13.05, 18.05, 25.05, 32.05):
         mix += _bell(698.46, hit, 2.4, 0.045, n)
     beat = 5.2
     while beat < 36.2:
@@ -147,3 +147,10 @@ def render(path: str) -> str:
         handle.setframerate(SR)
         handle.writeframes(pcm.tobytes())
     return path
+
+
+if __name__ == "__main__":
+    import sys
+    from pathlib import Path
+    out = Path(__file__).resolve().parents[1] / "output" / "score.wav"
+    print(render(str(out)))

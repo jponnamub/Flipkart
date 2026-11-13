@@ -27,7 +27,7 @@ def line_size(text: str, size: int, weight: str = "regular") -> tuple[int, int]:
     return layout.get_pixel_size()
 
 
-def draw_line(text: str, size: int, weight: str = "regular") -> Image.Image:
+def draw_line(text: str, size: int, weight: str = "regular", color=INK) -> Image.Image:
     width, height = line_size(text, size, weight)
     pad_x, pad_y = 8, 6
     surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, width + pad_x * 2, height + pad_y * 2)
@@ -38,7 +38,7 @@ def draw_line(text: str, size: int, weight: str = "regular") -> Image.Image:
     style = "Bold" if weight == "bold" else "Regular"
     layout.set_font_description(Pango.font_description_from_string(f"{FONT} {style} {size}"))
     layout.set_text(text, -1)
-    ctx.set_source_rgba(*INK, 1)
+    ctx.set_source_rgba(*color, 1)
     ctx.move_to(pad_x, pad_y)
     PangoCairo.show_layout(ctx, layout)
     surface.flush()
