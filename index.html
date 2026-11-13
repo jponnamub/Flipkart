@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlipMart - Online Shopping Site</title>
+    <meta
+      name="description"
+      content="A Flipkart-inspired ecommerce storefront with search, deals, filters, cart, wishlist, checkout, seller tools, and responsive shopping flows."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="top-strip">
+      <span>Plus members get free delivery, rewards, and early sale access.</span>
+      <span>Download the app | 24x7 customer care | Gift cards</span>
+    </div>
+
+    <header class="site-header">
+      <button class="icon-button mobile-only" id="menuButton" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a class="brand" href="#home" aria-label="FlipMart home">
+        <span class="brand-name">FlipMart</span>
+        <span class="brand-plus">Explore <strong>Plus</strong></span>
+      </a>
+
+      <form class="search" id="searchForm" role="search">
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Search for products, brands and more"
+          autocomplete="off"
+          aria-label="Search products"
+        />
+        <button type="submit" aria-label="Search">Search</button>
+        <div class="suggestions" id="suggestions" aria-live="polite"></div>
+      </form>
+
+      <nav class="header-actions" aria-label="Account and shopping actions">
+        <button class="login-button" id="loginButton">Login</button>
+        <a href="#seller">Become a Seller</a>
+        <button class="plain-button" id="ordersButton">Orders</button>
+        <button class="cart-button" id="cartButton" aria-label="Open cart">
+          Cart <span id="cartCount">0</span>
+        </button>
+      </nav>
+    </header>
+
+    <aside class="mobile-menu" id="mobileMenu" aria-label="Mobile menu">
+      <button class="close-button" id="closeMenuButton" aria-label="Close menu">&times;</button>
+      <a href="#products">All Products</a>
+      <a href="#deals">Top Deals</a>
+      <a href="#grocery">Grocery</a>
+      <a href="#seller">Seller Hub</a>
+      <a href="#support">Customer Care</a>
+    </aside>
+
+    <main id="home">
+      <section class="category-ribbon" aria-label="Featured categories">
+        <button class="category-card" data-category="Mobiles">
+          <span class="category-icon phone"></span>
+          Mobiles
+        </button>
+        <button class="category-card" data-category="Fashion">
+          <span class="category-icon fashion"></span>
+          Fashion
+        </button>
+        <button class="category-card" data-category="Electronics">
+          <span class="category-icon electronics"></span>
+          Electronics
+        </button>
+        <button class="category-card" data-category="Home">
+          <span class="category-icon home"></span>
+          Home
+        </button>
+        <button class="category-card" data-category="Appliances">
+          <span class="category-icon appliance"></span>
+          Appliances
+        </button>
+        <button class="category-card" data-category="Beauty">
+          <span class="category-icon beauty"></span>
+          Beauty
+        </button>
+        <button class="category-card" data-category="Grocery">
+          <span class="category-icon grocery"></span>
+          Grocery
+        </button>
+        <button class="category-card" data-category="Travel">
+          <span class="category-icon travel"></span>
+          Travel
+        </button>
+      </section>
+
+      <section class="hero">
+        <button class="slider-button prev" id="prevSlide" aria-label="Previous banner">&lsaquo;</button>
+        <div class="hero-slides" id="heroSlides">
+          <article class="hero-slide active">
+            <div>
+              <p class="eyebrow">Big Billion Days Preview</p>
+              <h1>Deals that feel like festival season every day</h1>
+              <p>Mobiles, laptops, fashion, grocery, and home essentials with bank offers and exchange bonuses.</p>
+              <a class="primary-cta" href="#products">Shop now</a>
+            </div>
+            <div class="hero-art sale-art">
+              <span>Up to</span>
+              <strong>80% OFF</strong>
+            </div>
+          </article>
+          <article class="hero-slide">
+            <div>
+              <p class="eyebrow">SuperCoins and Plus</p>
+              <h1>Rewards, faster delivery, and member-only prices</h1>
+              <p>Earn on every purchase, redeem on travel and entertainment, and unlock free shipping.</p>
+              <a class="primary-cta" href="#plus">Explore Plus</a>
+            </div>
+            <div class="hero-art plus-art">
+              <span>Plus</span>
+              <strong>Early Access</strong>
+            </div>
+          </article>
+          <article class="hero-slide">
+            <div>
+              <p class="eyebrow">Groceries delivered</p>
+              <h1>Fresh staples, snacks, and daily needs at low prices</h1>
+              <p>Choose your delivery slot, add household essentials, and save more with combos.</p>
+              <a class="primary-cta" href="#grocery">Buy grocery</a>
+            </div>
+            <div class="hero-art grocery-art">
+              <span>Fresh</span>
+              <strong>Daily Deals</strong>
+            </div>
+          </article>
+        </div>
+        <button class="slider-button next" id="nextSlide" aria-label="Next banner">&rsaquo;</button>
+        <div class="slider-dots" id="sliderDots" aria-label="Banner controls"></div>
+      </section>
+
+      <section class="quick-panel" aria-label="Shopping services">
+        <article>
+          <span>Exchange</span>
+          <strong>Get value for old phones, laptops, and appliances.</strong>
+        </article>
+        <article>
+          <span>Pay Later</span>
+          <strong>Instant credit at checkout with no-cost EMI offers.</strong>
+        </article>
+        <article>
+          <span>Delivery</span>
+          <strong>Check pincode availability, slots, and installation.</strong>
+        </article>
+        <article>
+          <span>Assured</span>
+          <strong>Verified sellers, easy returns, and quality checks.</strong>
+        </article>
+      </section>
+
+      <section class="section" id="deals">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Limited time</p>
+            <h2>Top offers and flash deals</h2>
+          </div>
+          <div class="timer" aria-label="Deal timer">Ends in <span id="dealTimer">02:00:00</span></div>
+        </div>
+        <div class="deal-row" id="dealRow"></div>
+      </section>
+
+      <section class="section marketplace" id="products">
+        <div class="section-heading sticky-heading">
+          <div>
+            <p class="eyebrow">Marketplace</p>
+            <h2>Shop by filters, ratings, brands, offers, and delivery</h2>
+          </div>
+          <button class="filter-toggle mobile-only" id="filterToggle">Filters</button>
+        </div>
+
+        <div class="market-layout">
+          <aside class="filters" id="filtersPanel" aria-label="Product filters">
+            <div class="filter-title">
+              <h3>Filters</h3>
+              <button id="clearFilters" class="link-button">Clear all</button>
+            </div>
+
+            <label class="input-label" for="pincodeInput">Delivery pincode</label>
+            <div class="pincode-row">
+              <input id="pincodeInput" maxlength="6" inputmode="numeric" placeholder="560001" />
+              <button id="checkPincode">Check</button>
+            </div>
+            <p class="helper-text" id="pincodeMessage">Enter pincode to see delivery promises.</p>
+
+            <div class="filter-group">
+              <h4>Category</h4>
+              <div id="categoryFilters"></div>
+            </div>
+
+            <div class="filter-group">
+              <h4>Price</h4>
+              <label>
+                Max price
+                <input id="priceRange" type="range" min="499" max="89999" value="89999" />
+              </label>
+              <span id="priceValue">Rs. 89,999</span>
+            </div>
+
+            <div class="filter-group">
+              <h4>Customer ratings</h4>
+              <label><input type="radio" name="rating" value="4" /> 4 stars and above</label>
+              <label><input type="radio" name="rating" value="3" /> 3 stars and above</label>
+              <label><input type="radio" name="rating" value="0" checked /> All ratings</label>
+            </div>
+
+            <div class="filter-group">
+              <h4>Offers</h4>
+              <label><input id="assuredOnly" type="checkbox" /> FlipMart Assured</label>
+              <label><input id="emiOnly" type="checkbox" /> No-cost EMI</label>
+              <label><input id="exchangeOnly" type="checkbox" /> Exchange available</label>
+            </div>
+          </aside>
+
+          <div class="product-area">
+            <div class="toolbar">
+              <span id="resultSummary">Showing products</span>
+              <label>
+                Sort by
+                <select id="sortSelect">
+                  <option value="popularity">Popularity</option>
+                  <option value="priceLow">Price - Low to High</option>
+                  <option value="priceHigh">Price - High to Low</option>
+                  <option value="rating">Customer Rating</option>
+                  <option value="discount">Discount</option>
+                </select>
+              </label>
+            </div>
+            <div class="product-grid" id="productGrid"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section services-grid" id="grocery">
+        <article class="service-card grocery-card">
+          <p class="eyebrow">FlipMart Grocery</p>
+          <h2>Daily essentials delivered in convenient slots</h2>
+          <p>Rice, oil, snacks, personal care, cleaning supplies, and fresh combos in one basket.</p>
+          <button class="secondary-cta" data-category-jump="Grocery">Shop grocery</button>
+        </article>
+        <article class="service-card travel-card">
+          <p class="eyebrow">Travel</p>
+          <h2>Book flights and save with SuperCoins</h2>
+          <p>Search popular routes, compare fares, and apply wallet rewards at checkout.</p>
+          <div class="mini-form">
+            <input placeholder="From" value="Bengaluru" />
+            <input placeholder="To" value="Delhi" />
+            <button>Search flights</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="section plus-section" id="plus">
+        <div>
+          <p class="eyebrow">Membership</p>
+          <h2>FlipMart Plus benefits</h2>
+          <p>Members get early sale access, free delivery badges, extra SuperCoins, priority support, and partner rewards.</p>
+        </div>
+        <div class="benefit-list">
+          <span>Early sale access</span>
+          <span>Free delivery</span>
+          <span>Priority returns</span>
+          <span>SuperCoin rewards</span>
+        </div>
+      </section>
+
+      <section class="section seller-section" id="seller">
+        <div>
+          <p class="eyebrow">Seller Hub</p>
+          <h2>Sell to millions of shoppers</h2>
+          <p>Manage listings, payments, inventory, promotions, and performance from a seller-style dashboard.</p>
+          <button class="primary-cta">Start selling</button>
+        </div>
+        <div class="seller-dashboard" aria-label="Seller dashboard preview">
+          <div><span>Orders today</span><strong>1,284</strong></div>
+          <div><span>Revenue</span><strong>Rs. 28.6L</strong></div>
+          <div><span>Return rate</span><strong>2.4%</strong></div>
+          <div><span>Ads ROI</span><strong>4.7x</strong></div>
+        </div>
+      </section>
+
+      <section class="section support-section" id="support">
+        <div>
+          <p class="eyebrow">Customer care</p>
+          <h2>Orders, returns, payments, and account help</h2>
+        </div>
+        <div class="support-grid">
+          <article>Track an order</article>
+          <article>Return or replace</article>
+          <article>Payment issues</article>
+          <article>Warranty support</article>
+        </div>
+      </section>
+    </main>
+
+    <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+      <div class="drawer-header">
+        <h2>My Cart</h2>
+        <button class="close-button" id="closeCartButton" aria-label="Close cart">&times;</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="price-card">
+        <h3>Price details</h3>
+        <div><span>Price</span><strong id="subtotal">Rs. 0</strong></div>
+        <div><span>Discount</span><strong id="discountTotal">- Rs. 0</strong></div>
+        <div><span>Delivery</span><strong id="deliveryFee">Free</strong></div>
+        <div class="total"><span>Total amount</span><strong id="cartTotal">Rs. 0</strong></div>
+      </div>
+      <div class="checkout-box">
+        <h3>Secure checkout</h3>
+        <label>
+          Delivery address
+          <textarea id="addressInput" placeholder="House number, street, city, pincode"></textarea>
+        </label>
+        <label>
+          Payment option
+          <select id="paymentSelect">
+            <option>UPI</option>
+            <option>Credit / debit card</option>
+            <option>Cash on delivery</option>
+            <option>Pay Later EMI</option>
+          </select>
+        </label>
+        <button class="place-order" id="placeOrderButton">Place order</button>
+        <p id="checkoutMessage" class="helper-text"></p>
+      </div>
+    </aside>
+
+    <div class="overlay" id="overlay"></div>
+
+    <dialog class="product-modal" id="productModal">
+      <button class="close-button modal-close" id="closeProductModal" aria-label="Close details">&times;</button>
+      <div id="modalContent"></div>
+    </dialog>
+
+    <dialog class="login-modal" id="loginModal">
+      <button class="close-button modal-close" id="closeLoginModal" aria-label="Close login">&times;</button>
+      <div class="login-layout">
+        <div class="login-info">
+          <h2>Login</h2>
+          <p>Get access to your orders, wishlist, recommendations, and SuperCoins.</p>
+        </div>
+        <form id="loginForm" class="login-form">
+          <label>
+            Email or mobile number
+            <input id="loginIdentity" required placeholder="example@email.com" />
+          </label>
+          <label>
+            Password
+            <input type="password" required placeholder="Enter password" />
+          </label>
+          <button class="primary-cta" type="submit">Login</button>
+          <p id="loginMessage" class="helper-text"></p>
+        </form>
+      </div>
+    </dialog>
+
+    <footer class="site-footer">
+      <div>
+        <h3>About</h3>
+        <a>Contact us</a>
+        <a>Careers</a>
+        <a>Press</a>
+        <a>Corporate information</a>
+      </div>
+      <div>
+        <h3>Help</h3>
+        <a>Payments</a>
+        <a>Shipping</a>
+        <a>Cancellation and returns</a>
+        <a>FAQ</a>
+      </div>
+      <div>
+        <h3>Consumer policy</h3>
+        <a>Return policy</a>
+        <a>Terms of use</a>
+        <a>Security</a>
+        <a>Privacy</a>
+      </div>
+      <div>
+        <h3>Mail us</h3>
+        <p>FlipMart Internet Private Limited, Buildings Alyssa, Begonia and Clover, Bengaluru, India.</p>
+      </div>
+      <div class="footer-bottom">
+        <span>Become a Seller</span>
+        <span>Advertise</span>
+        <span>Gift Cards</span>
+        <span>Help Center</span>
+        <strong>Safe and secure payments</strong>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
