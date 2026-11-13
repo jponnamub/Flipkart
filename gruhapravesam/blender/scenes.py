@@ -387,7 +387,7 @@ def scene1():
     table = box("Table", (0, 0.2, -0.03), (2.4, 2.0, 0.06), lib.wood("TableWood", (0.05, 0.02, 0.01), (0.2, 0.09, 0.04),
                                                                          scale=1.5, stretch=(1, 6, 1)))
     box("BackWall", (0, 1.0, 1.0), (3, 0.1, 2.2), plaster("ShrineWall", (0.20, 0.11, 0.07), (0.28, 0.16, 0.10)))
-    lib.area("Window", (-1.3, 0.1, 1.0), (0, math.radians(-70), 0), 55, size=0.8, color=(1.0, 0.86, 0.7))
+    lib.area("Window", (-1.3, 0.1, 1.0), (0, math.radians(-70), 0), 32, size=0.8, color=(1.0, 0.86, 0.7))
     lib.area("Rim", (0.6, 0.9, 0.9), (math.radians(-120), 0, math.radians(20)), 12, size=0.6, color=(1.0, 0.7, 0.45))
     ganesha((0.12, 0.38, 0.09), scale=1.05)
     brass_lamp("Kuthuvilakku", (-0.13, -0.10, 0.0), scale=0.92, energy=4.5)
@@ -399,8 +399,8 @@ def scene1():
     sway(piv2, 0.07, 26, seed=17)
 
     cam, tgt = lib.camera(42, fstop=2.8)
-    lib.path_keys(cam, [(1, (-0.02, -1.75, 0.50)), (165, (0.04, -1.38, 0.44))])
-    lib.path_keys(tgt, [(1, (-0.06, 0.05, 0.33)), (165, (0.05, 0.3, 0.33))])
+    lib.path_keys(cam, [(1, (0.0, -1.85, 0.52)), (165, (0.05, -1.48, 0.46))])
+    lib.path_keys(tgt, [(1, (0.0, 0.1, 0.31)), (165, (0.03, 0.3, 0.32))])
     cam.data.dof.focus_distance = 1.62
     cam.data.dof.keyframe_insert("focus_distance", frame=1)
     cam.data.dof.keyframe_insert("focus_distance", frame=35)
@@ -415,9 +415,9 @@ def scene2():
     cow.place((-0.45, 0.2, 0.0), math.radians(-48))
     cow.stand()
     cow.blink([70, 148, 212, 248])
-    cow.head_pose(1, yaw=0.30, pitch=-0.05)
-    cow.head_pose(95, yaw=0.30, pitch=-0.05)
-    cow.head_pose(145, yaw=-0.12, pitch=0.05)
+    cow.head_pose(1, yaw=0.30, pitch=0.18)
+    cow.head_pose(95, yaw=0.26, pitch=0.16)
+    cow.head_pose(145, yaw=-0.12, pitch=0.22)
     cow.head_pose(200, yaw=-0.20, pitch=0.42)
     cow.head_pose(255, yaw=-0.14, pitch=0.30)
     cow.head_idle(0.03)
