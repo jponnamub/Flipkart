@@ -1,0 +1,15 @@
+This folder is only for generated or filmed moving picture.
+
+Do not place still photographs here.
+Do not place a clip made by zooming or panning a single frame.
+
+Each file below has to show the subject actually moving:
+
+01_opening.mp4                  5 seconds
+02_gomatha_entrance.mp4         7 seconds   cow blinks and turns, calf walks, doors open
+03_hosts.mp4                    5 seconds
+04_gruhapravesam.mp4            7 seconds
+05_vratham.mp4                  7 seconds
+06_venue.mp4                    7 seconds
+
+The reference still of the entrance is in ../reference/ and is not a shot.
